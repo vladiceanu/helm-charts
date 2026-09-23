@@ -51,7 +51,7 @@ helm.sh/chart: {{ include "fluent-operator.chart" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
-app.kubernetes.io/managed-by: {{ .Release.Service }}
+app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
 {{- end }}
 
 {{/*
@@ -59,7 +59,7 @@ Selector labels
 */}}
 {{- define "fluent-operator.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "fluent-operator.name" . }}
-app.kubernetes.io/instance: {{ .Release.Name }}
+app.kubernetes.io/instance: {{ .Release.Name | quote }}
 {{- end }}
 
 {{/*
@@ -71,4 +71,38 @@ Create the name of the service account to use
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
+{{- end }}
+
+{{/*
+Util function for generating the image URL based on the provided options.
+*/}}
+{{- define "fluent-operator.image" -}}
+{{- $defaultTag := index . 1 -}}
+{{- with index . 0 -}}
+{{- if .registry -}}{{ printf "%s/%s" .registry .repository }}{{- else -}}{{- .repository -}}{{- end -}}
+{{- if .digest -}}{{ printf "@%s" .digest }}{{- else -}}{{ printf ":%s" (default $defaultTag .tag) }}{{- end -}}
+{{- end }}
+{{- end }}
+
+{{/*
+Determine the container log path based on containerRuntime
+*/}}
+{{- define "fluent-operator.containerLogPath" -}}
+{{- if eq .Values.containerRuntime "docker" -}}
+/var/lib/docker/containers
+{{- else -}}
+/var/log/containers
+{{- end -}}
+{{- end }}
+
+{{/*
+Render a ClusterFluentBitConfig `service` section, merging the caller-provided
+defaults with the `fluentbit.service` value (which takes precedence on conflicts).
+Expects a dict with:
+  defaults - dict of default service fields
+  root     - the root template context (e.g. `$`)
+*/}}
+{{- define "fluent-operator.fluentbitService" -}}
+{{- $merged := mergeOverwrite (deepCopy .defaults) (.root.Values.fluentbit.service | default dict) -}}
+{{- toYaml $merged -}}
 {{- end }}

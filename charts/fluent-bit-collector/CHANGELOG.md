@@ -1,0 +1,136 @@
+# Fluent Bit Collector Helm Chart Changelog
+
+> [!NOTE]
+> All notable changes to this project will be documented in this file; the format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+<!--
+### Added - For new features.
+### Changed - For changes in existing functionality.
+### Deprecated - For soon-to-be removed features.
+### Removed - For now removed features.
+### Fixed - For any bug fixes.
+### Security - In case of vulnerabilities.
+-->
+
+## [UNRELEASED]
+
+## [v1.1.2] - 2026-09-08
+
+### Changed
+
+- Update _Fluent Bit_ OCI image to [v5.1.2](https://github.com/fluent/fluent-bit/releases/tag/v5.1.2). ([#755](https://github.com/fluent/helm-charts/pull/755)) @stevehipwell
+
+## [v1.1.1] - 2026-08-17
+
+### Changed
+
+- Update _Fluent Bit_ OCI image to [v5.1.1](https://github.com/fluent/fluent-bit/releases/tag/v5.1.1). ([#752](https://github.com/fluent/helm-charts/pull/752)) @stevehipwell
+
+## [v1.1.0] - 2026-08-12
+
+### Changed
+
+- Update _Fluent Bit_ OCI image to [v5.1.0](https://github.com/fluent/fluent-bit/releases/tag/v5.1.0). ([#749](https://github.com/fluent/helm-charts/pull/749)) @stevehipwell
+
+### Fixed
+
+- Only mount the `data` volume when `storage.enabled` is `true`. The template previously checked `.Values.storage` (a map that is always truthy), so the volume was mounted even when storage was disabled. ([#732](https://github.com/fluent/helm-charts/pull/732)) _@yugstar_
+
+## [v1.0.9] - 2026-07-06
+
+### Changed
+
+- Update _Fluent Bit_ OCI image to [v5.0.9](https://github.com/fluent/fluent-bit/releases/tag/v5.0.9). ([#736](https://github.com/fluent/helm-charts/pull/736)) @stevehipwell
+
+## [v1.0.8] - 2026-07-01
+
+### Changed
+
+- Update _Fluent Bit_ OCI image to [v5.0.8](https://github.com/fluent/fluent-bit/releases/tag/v5.0.8). ([#734](https://github.com/fluent/helm-charts/pull/734)) _@stevehipwell_
+
+## [v1.0.7] - 2026-06-08
+
+### Changed
+
+- Update _Fluent Bit_ OCI image to [v5.0.7](https://github.com/fluent/fluent-bit/releases/tag/v5.0.7). ([#729](https://github.com/fluent/helm-charts/pull/729)) _@stevehipwell_
+
+## [v1.0.6] - 2026-05-22
+
+### Changed
+
+- Update _Fluent Bit_ OCI image to [v5.0.6](https://github.com/fluent/fluent-bit/releases/tag/v5.0.6). ([#724](https://github.com/fluent/helm-charts/pull/724)) _@stevehipwell_
+
+## [v1.0.5] - 2026-05-12
+
+### Changed
+
+- Update _Fluent Bit_ OCI image to [v5.0.5](https://github.com/fluent/fluent-bit/releases/tag/v5.0.5). ([#721](https://github.com/fluent/helm-charts/pull/721)) _@stevehipwell_
+
+## [v1.0.4] - 2026-05-12
+
+### Changed
+
+- Update _Fluent Bit_ OCI image to [v5.0.4](https://github.com/fluent/fluent-bit/releases/tag/v5.0.4). ([#719](https://github.com/fluent/helm-charts/pull/719)) _@stevehipwell_
+
+## [v1.0.3] - 2026-04-17
+
+### Changed
+
+- Update _Fluent Bit_ OCI image to [v5.0.3](https://github.com/fluent/fluent-bit/releases/tag/v5.0.3). ([#710](https://github.com/fluent/helm-charts/pull/710)) _@stevehipwell_
+
+## [v1.0.2] - 2026-04-02
+
+### Changed
+
+- Update _Fluent Bit_ OCI image to [v5.0.2](https://github.com/fluent/fluent-bit/releases/tag/v5.0.2). ([#705](https://github.com/fluent/helm-charts/pull/705)) _@stevehipwell_
+
+## [v1.0.1] - 2026-04-02
+
+### Changed
+
+- Update _Fluent Bit_ OCI image to [v5.0.1](https://github.com/fluent/fluent-bit/releases/tag/v5.0.1). ([#704](https://github.com/fluent/helm-charts/pull/704)) _@stevehipwell_
+
+## [v1.0.0] - 2026-03-23
+
+### Changed
+
+- Update _Fluent Bit_ OCI image to [v5.0.0](https://github.com/fluent/fluent-bit/releases/tag/v5.0.0). ([#700](https://github.com/fluent/helm-charts/pull/700)) _@stevehipwell_
+
+## [v1.0.0-beta.3] - 2026-02-27
+
+### Changed
+
+- Update _Fluent Bit_ OCI image to [v4.2.3](https://github.com/fluent/fluent-bit/releases/tag/v4.2.3). ([#697](https://github.com/fluent/helm-charts/pull/697)) _@stevehipwell_
+
+## [v1.0.0-beta.2] - 2026-01-16
+
+### Changed
+
+- Add Artifact Hub metadata file to verify charts. ([#671](https://github.com/fluent/helm-charts/pull/671)) _@stevehipwell_
+
+## [v1.0.0-beta.1] - 2026-01-16
+
+### Added
+
+- Added initial release. ([#665](https://github.com/fluent/helm-charts/pull/665)) _@stevehipwell_
+
+<!--
+RELEASE LINKS
+-->
+[UNRELEASED]: https://github.com/fluent/helm-charts/tree/main/charts/fluent-bit-collector
+[v1.1.2]: https://github.com/fluent/helm-charts/releases/tag/fluent-bit-collector-1.1.2
+[v1.1.1]: https://github.com/fluent/helm-charts/releases/tag/fluent-bit-collector-1.1.1
+[v1.1.0]: https://github.com/fluent/helm-charts/releases/tag/fluent-bit-collector-1.1.0
+[v1.0.9]: https://github.com/fluent/helm-charts/releases/tag/fluent-bit-collector-1.0.9
+[v1.0.8]: https://github.com/fluent/helm-charts/releases/tag/fluent-bit-collector-1.0.8
+[v1.0.7]: https://github.com/fluent/helm-charts/releases/tag/fluent-bit-collector-1.0.7
+[v1.0.6]: https://github.com/fluent/helm-charts/releases/tag/fluent-bit-collector-1.0.6
+[v1.0.5]: https://github.com/fluent/helm-charts/releases/tag/fluent-bit-collector-1.0.5
+[v1.0.4]: https://github.com/fluent/helm-charts/releases/tag/fluent-bit-collector-1.0.4
+[v1.0.3]: https://github.com/fluent/helm-charts/releases/tag/fluent-bit-collector-1.0.3
+[v1.0.2]: https://github.com/fluent/helm-charts/releases/tag/fluent-bit-collector-1.0.2
+[v1.0.1]: https://github.com/fluent/helm-charts/releases/tag/fluent-bit-collector-1.0.1
+[v1.0.0]: https://github.com/fluent/helm-charts/releases/tag/fluent-bit-collector-1.0.0
+[v1.0.0-beta.3]: https://github.com/fluent/helm-charts/releases/tag/fluent-bit-collector-1.0.0-beta.3
+[v1.0.0-beta.2]: https://github.com/fluent/helm-charts/releases/tag/fluent-bit-collector-1.0.0-beta.2
+[v1.0.0-beta.1]: https://github.com/fluent/helm-charts/releases/tag/fluent-bit-collector-1.0.0-beta.1

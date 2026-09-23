@@ -11,11 +11,17 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
+  recommenders:
+  - name: {{ .Values.autoscaling.vpa.recommender }}
   resourcePolicy:
     containerPolicies:
     - containerName: {{ .Chart.Name }}
       {{- with .Values.autoscaling.vpa.controlledResources }}
-      controlledResources: 
+      controlledResources:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.autoscaling.vpa.controlledValues }}
+      controlledValues:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       {{- with .Values.autoscaling.vpa.maxAllowed }}
